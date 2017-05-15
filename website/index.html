@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SF Movie</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="shortcut icon"type="image/x-icon" href="img/logo.ico"media="screen" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="js/currency-autocomplete.js"></script>
+    <script type="text/javascript" src="js/main_func.js"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-yj1SUaxNnG57DWqQ7Ga6Nvja9WGv-m0&libraries=visualization&callback=initMap">
+    </script>
+    <script>
+      $(document).ready(function(){
+        $('#proCompany').load('html/selectmenu/compOption.html #company option');
+        $('#year').load('html/selectmenu/yearOption.html #year option');
+      })
+    </script>
+  </head>
+  <body>
+    <!-- The first part of the web page is the title image -->
+    <div class="imgwrap">
+      <img src="img/title.png" id="title">
+    </div>
+    <!-- The second part of the web page is the searchfield, including a inputbox and a submit button -->
+    <div id="searchfield">
+      <form>
+        <input type="text" name="currency" class="biginput" id="autocomplete">
+      </form>
+      <button onclick="addMarkers()" id="searchButton">search</button>
+    </div>
+    <!-- The third part of the web page is the sizer, including two selectmenu and a submit button -->
+    <div id="sizer">
+      <label for="year">Year:</label>
+      <select id="year" class="selectmenu"></select>
+      <label for="proCompany">Production Company:</label>
+      <select id="proCompany" class="selectmenu"></select>
+      <button onclick="addHeatmapLayer()", id="sizerButton">Draw HeatMap</button>
+    </div>
+    <!-- The fourth part of the web page is the google map -->
+    <div id="map"></div>
+    <!-- The fifth part of the web page is the snackbar, which is invisible and show up in some condition -->
+    <div id="snackbar">Can not find this movie, please try another one.</div>
+  </body>
+</html>

@@ -13,7 +13,7 @@ class MyDataBase:
             port = 3306,
             user = "root",
             passwd = "sfm123",
-            db = "SF_Movie",
+            db = "SF_MOVIE",
             use_unicode = True,
             charset = "utf8",
         )
