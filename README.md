@@ -14,28 +14,44 @@
 Here, I would like to show the technical details from three aspects: front-end, back-end and database. 
 
 1.Database
+
 **Task:** Get and parse the original data, transform the general location into geographic location and store all the data to the database.
+
 Step 1. Download the raw data in XML format. Here are many choices, we can access the dataset via API, or download it in CSV, JSON, XML format. I choose XML becasue it's easy to parse XML and insert data to MySQL using Python(which I am familiar with). 
+
 Step 2. Parse the data using Python xml.dom method.
 `DOMTree = xml.dom.minidom.parse("film_in_SF.xml")`
 Then, we will get all the information of each movie, like location, release year, production company or something else.
+
 Step 3. Send Geocoding request using Python request method. Because of the map element on the webpage only receive geographic locations, we need to transform the general location into geographic location.
+
 `response = requests.get(url=url, params={'address':address, 'key':key})`
 Step 4. Filter the geocoding response. Sometimes, the location from raw data might have the same name with other locations. Thus, I built a fiter to drop the response data without key word "San Francisco".
+
 Step 5. Insert the data into MySQL using python-mysqldb.
 
 2.Front-end
+
 **Task:** Receive the input from user(movie title, release year and production company) and send the input to application server. Server will return XML file with geographic locations, parse the XML file and pass data to map container, which will show the data using marker or heat map.
+
 Step 1. Establish three key elements in HTML. One inputbox`<input>`, two select menu`<select>`and map`<div id="map">`. 
+
 Step 2. Create an initial map calling Google Maps JavaScript API.
+
 Step 3. Get data from inputbox or select menu in JS`var film=document.getElementByID("autocomplete").value`Send this data to the server runing php scripts using XMLHttpRequest.
+
 Step 4. Parse the XML file from the application sever, extract the geographic location and show on the map.
 
 3.Back-end
+
 **Task:**Receive the data from the website, select the responding data from MySQL database and then build a XML file to organise the data. Send the XML file back to front-end.
+
 Step 1. Connect to the MySQL using `mysqli_connect()`function.
+
 Step 2. Get the input from website`$film=$_POST['film']`.
+
 Step 3. Select the data from MySQL with specific condition(movie title, company or year).
+
 Step 4. Build a XML file`$dom=new DOMDocument('1.0','utf-8')` to store the select result and export it.
 
 To explain more specifically, I draw a flow chart to describe how the data transmitted in SF Movies.
