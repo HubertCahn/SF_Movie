@@ -24,8 +24,8 @@ Step 2. Parse the data using Python xml.dom method.
 Then, we will get all the information of each movie, like location, release year, production company or something else.
 
 Step 3. Send Geocoding request using Python request method. Because of the map element on the webpage only receive geographic locations, we need to transform the general location into geographic location.
-
 `response = requests.get(url=url, params={'address':address, 'key':key})`
+
 Step 4. Filter the geocoding response. Sometimes, the location from raw data might have the same name with other locations. Thus, I built a fiter to drop the response data without key word "San Francisco".
 
 Step 5. Insert the data into MySQL using python-mysqldb.
