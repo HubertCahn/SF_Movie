@@ -55,7 +55,7 @@ Step 3. Select the data from MySQL with specific condition(movie title, company 
 Step 4. Build a XML file`$dom=new DOMDocument('1.0','utf-8')` to store the select result and export it.
 
 To explain more specifically, I draw a flow chart to describe how the data transmitted in SF Movies.
-![flowchart](http://img.blog.csdn.net/20170515222152932?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzI4NzY4NjM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![flowchart](http://ec2-54-169-212-184.ap-southeast-1.compute.amazonaws.com/website/img/flowchart.png)
 
 
 ----------
